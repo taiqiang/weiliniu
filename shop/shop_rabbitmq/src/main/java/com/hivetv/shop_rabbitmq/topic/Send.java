@@ -16,11 +16,13 @@ public class Send {
         // 声明exchange
         channel.exchangeDeclare(EXCHANGE_NAME, "topic");
 
-        // 消息内容
-        String message = "删除商品 id = 1000";
-        channel.basicPublish(EXCHANGE_NAME, "item.delete", null, message.getBytes());
-        System.out.println(" [x] Sent '" + message + "'");
-
+        for (int i = 0; i < 50; i++) {
+            // 消息内容
+            String message = "删除商品 id = 1000_" + i;
+            channel.basicPublish(EXCHANGE_NAME, "item.delete", null, message.getBytes());
+            System.out.println(" [x] Sent '" + message + "'");
+            Thread.sleep(i * 10);
+        }
         channel.close();
         connection.close();
     }

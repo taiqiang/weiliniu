@@ -21,7 +21,7 @@ public class Recv {
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
 
         // 绑定队列到交换机
-        channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, "item.update");
+//        channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, "item.update");
         channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, "item.delete");
 
         // 同一时刻服务器只会发一条消息给消费者
@@ -37,7 +37,7 @@ public class Recv {
             QueueingConsumer.Delivery delivery = consumer.nextDelivery();
             String message = new String(delivery.getBody());
             System.out.println(" [x] Received '" + message + "'");
-            Thread.sleep(10);
+            Thread.sleep(2000);
 
             channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
         }
