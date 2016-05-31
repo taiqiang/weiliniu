@@ -1,0 +1,17 @@
+/jjgc/.settings/
+*.class
+/jjgc/jjgc_cms/.settings/
+/jjgc/jjgc_cms/target/
+/jjgc/jjgc_cms/src/main/webapp/WEB-INF/classes/
+/jjgc/jjgc_common/.settings/
+/jjgc/jjgc_common/target/
+/jjgc/jjgc_weixin/.settings/
+/jjgc/jjgc_weixin/target/
+/jjgc/jjgc_weixin/src/main/webapp/WEB-INF/classes/
+jjgc/.project
+jjgc/jjgc_cms/.classpath
+jjgc/jjgc_cms/.project
+jjgc/jjgc_common/.classpath
+jjgc/jjgc_common/.project
+jjgc/jjgc_weixin/.classpath
+jjgc/jjgc_weixin/.project

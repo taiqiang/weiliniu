@@ -10,7 +10,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
 public class DoGETParam {
-
+ 
     public static void main(String[] args) throws Exception {
 
         // 创建Httpclient对象
