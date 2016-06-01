@@ -6,6 +6,7 @@
   <packaging>pom</packaging>
   
   <modules>
+	<module>shop_core</module>
 	<module>shop_httpclient</module>
 	<module>shop_rabbitmq</module>
 	<module>shop_redis</module>
