@@ -17,10 +17,13 @@ public class Send {
         channel.exchangeDeclare(EXCHANGE_NAME, "direct");
 
         // 消息内容
-        String message = "id = 1000";
-        channel.basicPublish(EXCHANGE_NAME, "delete", null, message.getBytes());
-        System.out.println(" [x] Sent '" + message + "'");
-
+        for(int i=0;i<10;i++)
+        {
+            String message = "id = 1000";
+            channel.basicPublish(EXCHANGE_NAME, "delete", null, message.getBytes());
+            System.out.println(" [x] Sent '" + message + "'");
+            Thread.sleep(1000);
+        }
         channel.close();
         connection.close();
     }
