@@ -36,7 +36,6 @@ public class Recv {
             String message = new String(delivery.getBody());
             System.out.println(" [x] Received '" + message + "'");
             Thread.sleep(10);
-
             channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
         }
     }

@@ -17,10 +17,14 @@ public class Send {
         channel.exchangeDeclare(EXCHANGE_NAME, "fanout");
 
         // 消息内容
-        String message = "商品已经更新！ id = 1000";
-        channel.basicPublish(EXCHANGE_NAME, "", null, message.getBytes());
-        System.out.println(" [x] Sent '" + message + "'");
-
+        for(int i=0;i<10;i++)
+        {
+            String message = "商品已经更新！ id = 1000";
+            channel.basicPublish(EXCHANGE_NAME, "", null, message.getBytes());
+            System.out.println(" [x] Sent '" + message + "'"+i);
+            Thread.sleep(1000);
+        }
+        
         channel.close();
         connection.close();
     }
