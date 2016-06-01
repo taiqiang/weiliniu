@@ -2,8 +2,6 @@ package com.hivetv.shop_rabbitmq.spring;
 
 /**
  * 消费者
- * @author zhijun
- *
  */
 public class Foo {
 
