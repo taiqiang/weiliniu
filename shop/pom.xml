@@ -6,7 +6,6 @@
   <packaging>pom</packaging>
   
   <modules>
-	<module>shop_core</module>
 	<module>shop_httpclient</module>
 	<module>shop_rabbitmq</module>
 	<module>shop_redis</module>
@@ -89,6 +88,34 @@
 					<artifactId>mybatis-spring</artifactId>
 					<version>${mybatis.spring.version}</version>
 				</dependency>
+				
+				<!-- Hibernate -->
+				<dependency>
+					<groupId>org.hibernate</groupId>
+					<artifactId>hibernate-core</artifactId>
+					<version>4.0.1.Final</version>
+				</dependency>
+				<dependency>
+					<groupId>org.hibernate</groupId>
+					<artifactId>hibernate-validator</artifactId>
+					<version>4.2.0.Final</version>
+				</dependency>
+				<dependency>
+					<groupId>org.hibernate.common</groupId>
+					<artifactId>hibernate-commons-annotations</artifactId>
+					<version>4.0.1.Final</version>
+					<classifier>tests</classifier>
+				</dependency>
+				<dependency>
+					<groupId>org.hibernate.javax.persistence</groupId>
+					<artifactId>hibernate-jpa-2.0-api</artifactId>
+					<version>1.0.1.Final</version>
+				</dependency>
+				<dependency>
+					<groupId>org.hibernate</groupId>
+					<artifactId>hibernate-entitymanager</artifactId>
+					<version>4.0.1.Final</version>
+				</dependency>
 	
 				<!-- MySql -->
 				<dependency>
@@ -130,11 +157,16 @@
 		            <version>4.5.1</version>
 		        </dependency>
 		        
-		        <!-- fastjson -->
+		        <!-- json相关-->
 				<dependency>
 					<groupId>com.alibaba</groupId>
 					<artifactId>fastjson</artifactId>
 					<version>${fastjson.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>net.sf.json-lib</groupId>
+					<artifactId>json-lib-ext-spring</artifactId>
+					<version>1.0.2</version>
 				</dependency>
 	
 				<!-- JSP相关 -->
