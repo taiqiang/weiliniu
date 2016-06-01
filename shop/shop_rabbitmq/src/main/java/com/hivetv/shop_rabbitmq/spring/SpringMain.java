@@ -11,8 +11,11 @@ public class SpringMain {
         //RabbitMQ模板
         RabbitTemplate template = ctx.getBean(RabbitTemplate.class);
         //发送消息
-        template.convertAndSend("Hello, world!");
-        Thread.sleep(1000);// 休眠1秒
+        for(int i=0;i<50;i++)
+        {
+            template.convertAndSend("Hello, world!"+i);
+            Thread.sleep(1000);// 休眠1秒
+        }
         ctx.destroy(); //容器销毁
     }
 }
