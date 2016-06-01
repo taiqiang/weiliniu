@@ -21,4 +21,7 @@
 /shop/shop_redis/.project
 /shop/shop_solrj/.classpath
 /shop/shop_solrj/.project
-
+/shop_core/.settings/
+/shop_core/target/
+/shop_core/.classpath
+/shop_core/.project
