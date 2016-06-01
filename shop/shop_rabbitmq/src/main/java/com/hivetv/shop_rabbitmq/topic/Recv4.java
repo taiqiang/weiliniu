@@ -35,7 +35,7 @@ public class Recv4 {
         while (true) {
             QueueingConsumer.Delivery delivery = consumer.nextDelivery();
             String message = new String(delivery.getBody());
-            System.out.println(" [x] Received----3333 '" + message + "'");
+            System.out.println(" [x] Received----4444'" + message + "'");
             Thread.sleep(2000);
             channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
         }
