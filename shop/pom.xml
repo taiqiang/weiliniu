@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.weiliniu</groupId>
@@ -10,12 +11,12 @@
 	<module>shop_rabbitmq</module>
 	<module>shop_redis</module>
 	<module>shop_solrj</module>
+    <module>shop_tbschedule</module>
   </modules>
   
 <!-- 集中定义依赖版本号 -->
 <properties>
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	<junit.version>4.10</junit.version>
 	<spring.version>4.1.3.RELEASE</spring.version>
 	<mybatis.version>3.2.8</mybatis.version>
 	<mybatis.spring.version>1.2.2</mybatis.spring.version>
@@ -42,15 +43,14 @@
 </properties>
 
 	<dependencies>
-				<!-- 单元测试 -->
-				<dependency>
-					<groupId>junit</groupId>
-					<artifactId>junit</artifactId>
-					<version>${junit.version}</version>
-					<scope>test</scope>
-				</dependency>
 	
 				<!-- Spring -->
+				<dependency> 
+			      <groupId>org.springframework</groupId>  
+			      <artifactId>spring</artifactId>  
+			      <version>2.5.6.SEC03</version>  
+			      <scope>provided</scope> 
+			    </dependency>
 				<dependency>
 					<groupId>org.springframework</groupId>
 					<artifactId>spring-context</artifactId>
@@ -196,12 +196,6 @@
 				</dependency>
 	
 				<!-- Apache工具组件 -->
-				<dependency>
-					<groupId>org.apache.commons</groupId>
-					<artifactId>commons-lang3</artifactId>
-					<version>${commons-lang3.version}</version>
-				</dependency>
-				
 				<!-- 依赖的公共类库 -->
 				<dependency>
 					<groupId>org.apache.commons</groupId>
@@ -232,7 +226,13 @@
 					<artifactId>commons-lang3</artifactId>
 					<version>${commons-lang3.version}</version>
 				</dependency>
-		
+				
+			    <dependency> 
+			      <groupId>commons-lang</groupId>  
+			      <artifactId>commons-lang</artifactId>  
+			      <version>2.4</version> 
+			    </dependency>
+		        
 				<dependency>
 					<groupId>org.apache.commons</groupId>
 					<artifactId>commons-proxy</artifactId>
@@ -256,6 +256,12 @@
 					<artifactId>commons-compress</artifactId>
 					<version>1.8</version>
 				</dependency>
+				
+				<dependency> 
+			      <groupId>commons-beanutils</groupId>  
+			      <artifactId>commons-beanutils-core</artifactId>  
+			      <version>1.7.0</version> 
+			    </dependency>
 		
 				<dependency>
 					<groupId>org.apache.commons</groupId>
@@ -353,20 +359,53 @@
 					<artifactId>commons-logging</artifactId>
 					<version>1.1.3</version>
 				</dependency>
+			    <dependency> 
+			      <groupId>ch.qos.logback</groupId>  
+			      <artifactId>logback-classic</artifactId>  
+			      <version>0.9.29</version>  
+			      <scope>test</scope> 
+			    </dependency>
+			    <dependency> 
+			      <groupId>ch.qos.logback</groupId>  
+			      <artifactId>logback-core</artifactId>  
+			      <version>0.9.29</version>  
+			      <scope>test</scope> 
+			    </dependency>
+				<!-- LOGGING end -->
+				<!-- 日志结束-->
 				<!-- solr.jar -->
 				<dependency>
 					<groupId>org.apache.solr</groupId>
 					<artifactId>solr-solrj</artifactId>
 					<version>4.10.1</version>
 				</dependency>
-				<!-- LOGGING end -->
-				<!-- 日志结束-->
 				<!-- reids  客户端-->
 				<dependency>
 					<groupId>redis.clients</groupId>
 					<artifactId>jedis</artifactId>
 					<version>2.6.0</version>
 				</dependency>
+				<dependency>
+			      <groupId>com.google.code.gson</groupId>  
+			      <artifactId>gson</artifactId>  
+			      <version>2.1</version> 
+			    </dependency>
+			    <dependency> 
+			      <groupId>org.apache.zookeeper</groupId>  
+			      <artifactId>zookeeper</artifactId>  
+			      <exclusions> 
+			        <exclusion> 
+			          <groupId>org.slf4j</groupId>  
+			          <artifactId>slf4j-log4j12</artifactId> 
+			        </exclusion> 
+			      </exclusions>  
+			      <version>3.4.6</version> 
+			    </dependency>
+			    <dependency> 
+			      <groupId>org.unitils</groupId>  
+			      <artifactId>unitils</artifactId>  
+			      <version>2.3</version>  
+			      <scope>test</scope> 
+			    </dependency> 
 	</dependencies>  
 </project>
-
