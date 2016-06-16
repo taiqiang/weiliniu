@@ -1,2 +1,5 @@
 /META-INF/
 /com/
+/spring/
+/properties/
+/logback.xml
