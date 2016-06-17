@@ -48,8 +48,8 @@
 
 	<!-- JDBC配置 -->
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"> 
-		<property name="dataSource">
-		<ref bean="dataSource"/>
+		<property name="baseDs">
+		<ref bean="baseDs"/>
 		</property> 
 	</bean>
 	

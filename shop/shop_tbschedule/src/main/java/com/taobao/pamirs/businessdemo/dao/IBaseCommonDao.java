@@ -6,10 +6,20 @@
  * into with autohome.com.cn
  */
 package com.taobao.pamirs.businessdemo.dao;
+
+import java.util.List;
+
+import com.taobao.pamirs.businessdemo.model.ScheduleTest;
+
 /**
  * 类IBaseCommonDao.java的实现描述：TODO 类实现描述 
  * @author yichen 2016年6月16日 下午7:52:09
  */
 public interface IBaseCommonDao {
+    
+    
+    public List<ScheduleTest> findScheduleTestList();
+    
+    public void updateScheduleTest(ScheduleTest scheduleTest);
 
 }

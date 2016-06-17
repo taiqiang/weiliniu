@@ -7,6 +7,10 @@
  */
 package com.taobao.pamirs.businessdemo.dao.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +18,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.taobao.pamirs.businessdemo.dao.IBaseCommonDao;
+import com.taobao.pamirs.businessdemo.model.ScheduleTest;
 
 /**
  * 类BaseCommonDao.java的实现描述：TODO 类实现描述 
@@ -26,5 +31,36 @@ public class BaseCommonDao implements IBaseCommonDao {
     
     @Autowired
     protected JdbcTemplate jdbcTemplate;
+
+    /* (non-Javadoc)
+     * @see com.taobao.pamirs.businessdemo.dao.IBaseCommonDao#findScheduleTestList()
+     */
+    @Override
+    public List<ScheduleTest> findScheduleTestList() {
+        List<ScheduleTest>  scheduleTestList = new ArrayList<ScheduleTest>();
+        List rows = jdbcTemplate.queryForList(" SELECT ID,DEAL_COUNT,STS,OWN_SIGN FROM schedule_test "); 
+        for(int i=0;i<rows.size();i++){ 
+            ScheduleTest scheduleTest = new ScheduleTest();
+            Map userMap=(Map) rows.get(i);  
+            scheduleTest.setId(Integer.parseInt(String.valueOf(userMap.get("id"))));
+            scheduleTest.setDealCount(Integer.parseInt(String.valueOf(userMap.get("DEAL_COUNT"))));
+            scheduleTest.setSts(String.valueOf(userMap.get("STS")));
+            scheduleTest.setOwnSign(String.valueOf(userMap.get("OWN_SIGN")));
+            scheduleTestList.add(scheduleTest);
+        }  
+        return scheduleTestList;
+    }
+
+    /* (non-Javadoc)
+     * @see com.taobao.pamirs.businessdemo.dao.IBaseCommonDao#updateScheduleTest()
+     */
+    @Override
+    public void updateScheduleTest(ScheduleTest scheduleTest) {
+        int id = scheduleTest.getId();
+        int dealCount = scheduleTest.getDealCount();
+        String sts = scheduleTest.getSts();
+        String ownSign = scheduleTest.getOwnSign();
+        jdbcTemplate.update("UPDATE schedule_test SET ID = "+id+", DEAL_COUNT = "+dealCount+",STS='"+sts+"',ownSign='"+ownSign+"' WHERE ID="+id+" ");
+    }
 
 }

@@ -8,8 +8,8 @@
   
   <modules>
 	<module>shop_httpclient</module>
-	<module>shop_rabbitmq</module>
-	<module>shop_redis</module>
+<!-- 	<module>shop_rabbitmq</module>
+ --><module>shop_redis</module>
 	<module>shop_solrj</module>
     <module>shop_tbschedule</module>
   </modules>
@@ -405,5 +405,19 @@
 			      <version>2.3</version>  
 			      <scope>test</scope> 
 			    </dependency> 
+			    
+			    <!-- connection pool -->
+				<dependency>
+					<groupId>com.alibaba</groupId>
+					<artifactId>druid</artifactId>
+					<version>${druid.version}</version>
+				</dependency>
+		
+				<!-- jdbc driver -->
+				<dependency>
+					<groupId>mysql</groupId>
+					<artifactId>mysql-connector-java</artifactId>
+					<version>5.1.13</version>
+				</dependency>
 	</dependencies>  
 </project>

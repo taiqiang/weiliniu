@@ -5,14 +5,14 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
-	<bean id="jobTaskStrategy" class="com.athm.atmt.schedule.JobTaskStrategy">
+	<bean id="jobTaskStrategy" class="com.taobao.pamirs.businessdemo.base.JobTaskStrategy">
 		<property name="scheduleManagerFactory" ref="scheduleManagerFactory"></property>
 	</bean>
 	
 	<!-- 商家申请任务 -->
-	<bean id="protocolMailTask" class="com.athm.atmt.schedule.tasks.ProtocolMailTask">
+	<bean id="protocolMailTask" class="com.taobao.pamirs.businessdemo.controller.ProtocolMailTask">
 	</bean>
-	<bean id="protocolMailInit" class="com.athm.atmt.schedule.inits.ProtocolMailInit" parent="jobTaskStrategy">
+	<bean id="protocolMailInit" class="com.taobao.pamirs.businessdemo.controller.ProtocolMailInit" parent="jobTaskStrategy">
 		<property name="baseTaskType" value="${baseTaskType.protocolMail}"></property>
 		<property name="dealBeanName" value="${dealBeanName.protocolMail}"></property>
 		<property name="fetchDataNumber" value="${fetchDataNumber.protocolMail}"></property>
