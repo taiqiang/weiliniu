@@ -52,5 +52,8 @@
 		<ref bean="dataSource"/>
 		</property> 
 	</bean>
+	
+	<!-- 使用全局静态变量保存ApplicationContext -->
+    <bean id="springContextUtil" class="com.taobao.pamirs.businessdemo.base.SpringContextUtil"></bean>
 
  </beans>
