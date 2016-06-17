@@ -36,7 +36,12 @@ public class ProtocolMailTask implements IScheduleTaskDealSingle<ScheduleTest> {
 	@Override
 	public boolean execute(ScheduleTest scheduleTest, String ownSign) throws Exception {
 		try{
+		    scheduleTest.setSts("Y");
+		    logger.debug("修改业务方法开始");
+		    System.err.println("修改业务方法开始");
 		    baseCommonDao.updateScheduleTest(scheduleTest);
+		    logger.debug("修改业务方法结束");
+		    System.err.println("修改业务方法结束");
 			return true;
 		}catch(Exception e){
 		    logger.error("执行业务方法错误!");
