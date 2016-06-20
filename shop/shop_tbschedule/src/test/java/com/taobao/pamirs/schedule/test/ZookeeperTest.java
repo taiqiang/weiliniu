@@ -3,6 +3,7 @@ package com.taobao.pamirs.schedule.test;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.ZooDefs;
@@ -11,7 +12,9 @@ import org.apache.zookeeper.ZooKeeper;
 import org.apache.zookeeper.data.ACL;
 import org.apache.zookeeper.data.Id;
 import org.apache.zookeeper.server.auth.DigestAuthenticationProvider;
+
 import com.taobao.pamirs.schedule.zk.ScheduleWatcher;
+import com.taobao.pamirs.schedule.zk.ZKManager;
 import com.taobao.pamirs.schedule.zk.ZKTools;
 
 public class ZookeeperTest {
@@ -44,7 +47,6 @@ public class ZookeeperTest {
     	 ZooKeeper zk = new ZooKeeper("localhost:2181", 3000,
     			 new  ScheduleWatcher(null));
     	 zk.addAuthInfo("digest","ScheduleAdmin:password".getBytes());
-    
     	 ZKTools.deleteTree(zk,"/taobao-pamirs-schedule");
     	 StringWriter writer = new StringWriter();
     	 ZKTools.printTree(zk, "/", writer,"\n");
@@ -61,9 +63,23 @@ public class ZookeeperTest {
 		zk.getData("/abc",false,null);
 	}
 	
+	   public static void clearData() throws Exception{
+	        Properties p = new Properties();
+	        p.setProperty("zkConnectString", "localhost:2181");
+	        p.setProperty("rootPath", "/taobao-pamirs-schedule/taiqiang");
+	        p.setProperty("zkSessionTimeout", "60000");
+	        p.setProperty("userName", "ScheduleAdmin");
+	        p.setProperty("password", "password");
+	        p.setProperty("isCheckParentPath", "true");
+	        ZKManager zkManager = new ZKManager(p);
+	        ZKTools.deleteTree(zkManager.getZooKeeper(), "/taobao-pamirs-schedule/taiqiang");
+	        System.err.println("over.......................");
+	    }
+	
 	public static void main(String[] args) throws Exception
 	{
-	    ZookeeperTest zookeeperTest = new ZookeeperTest();
-	    zookeeperTest.testPrint();
+	    clearData();
+//	    ZookeeperTest zookeeperTest = new ZookeeperTest();
+//	    zookeeperTest.deletePath();
 	}
 }

@@ -30,6 +30,8 @@ public class ProtocolMailTask implements IScheduleTaskDealSingle<ScheduleTest> {
 			int eachFetchDataNum)
 			throws Exception {
 		List<ScheduleTest> scheduleTestList = baseCommonDao.findScheduleTestList();
+		int length = scheduleTestList.size();
+		System.err.println(length);
 		return scheduleTestList;
 	}
 
