@@ -46,7 +46,7 @@ public class ZookeeperTest {
      public void deletePath() throws Exception{
     	 ZooKeeper zk = new ZooKeeper("localhost:2181", 3000,
     			 new  ScheduleWatcher(null));
-    	 zk.addAuthInfo("digest","ScheduleAdmin:password".getBytes());
+    	 zk.addAuthInfo("digest","taiqiang:123456".getBytes());
     	 ZKTools.deleteTree(zk,"/taobao-pamirs-schedule");
     	 StringWriter writer = new StringWriter();
     	 ZKTools.printTree(zk, "/", writer,"\n");
@@ -56,7 +56,7 @@ public class ZookeeperTest {
 	public void testACL() throws Exception {
 		ZooKeeper zk = new ZooKeeper("localhost:2181", 3000,new  ScheduleWatcher(null));
 		List<ACL> acls = new ArrayList<ACL>();
-		zk.addAuthInfo("digest","TestUser:password".getBytes());
+		zk.addAuthInfo("digest","taiqiang:123456".getBytes());
 		acls.add(new ACL(ZooDefs.Perms.ALL,new Id("digest",DigestAuthenticationProvider.generateDigest("TestUser:password"))));
 		acls.add(new ACL(ZooDefs.Perms.READ,Ids.ANYONE_ID_UNSAFE));
 		zk.create("/abc", new byte[0], acls, CreateMode.PERSISTENT);
@@ -66,13 +66,13 @@ public class ZookeeperTest {
 	   public static void clearData() throws Exception{
 	        Properties p = new Properties();
 	        p.setProperty("zkConnectString", "localhost:2181");
-	        p.setProperty("rootPath", "/taobao-pamirs-schedule/taiqiang");
+	        p.setProperty("rootPath", "/taobao-pamirs-schedule");
 	        p.setProperty("zkSessionTimeout", "60000");
-	        p.setProperty("userName", "ScheduleAdmin");
-	        p.setProperty("password", "password");
-	        p.setProperty("isCheckParentPath", "true");
+            p.setProperty("userName", "ScheduleAdmin");
+            p.setProperty("password", "password");
+	        p.setProperty("isCheckParentPath", "true");    
 	        ZKManager zkManager = new ZKManager(p);
-	        ZKTools.deleteTree(zkManager.getZooKeeper(), "/taobao-pamirs-schedule/taiqiang");
+	        ZKTools.deleteTree(zkManager.getZooKeeper(), "/taobao-pamirs-schedule");
 	        System.err.println("over.......................");
 	    }
 	

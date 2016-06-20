@@ -63,7 +63,7 @@ public class BaseCommonDao implements IBaseCommonDao {
         int dealCount = scheduleTest.getDealCount();
         String sts = scheduleTest.getSts();
         String ownSign = scheduleTest.getOwnSign();
-        jdbcTemplate.update("UPDATE schedule_test SET ID = "+id+", DEAL_COUNT = "+dealCount+",STS='"+sts+"',ownSign='"+ownSign+"' WHERE ID="+id+" ");
+        jdbcTemplate.update("UPDATE schedule_test SET ID = "+id+", DEAL_COUNT = "+dealCount+",STS='"+sts+"',OWN_SIGN='"+ownSign+"' WHERE ID="+id+" ");
     }
 
 }
