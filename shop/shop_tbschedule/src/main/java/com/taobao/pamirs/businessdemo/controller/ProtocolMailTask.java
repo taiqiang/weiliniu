@@ -1,12 +1,9 @@
 package com.taobao.pamirs.businessdemo.controller;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import com.taobao.pamirs.businessdemo.base.SpringContextUtil;
 import com.taobao.pamirs.businessdemo.dao.IBaseCommonDao;
 import com.taobao.pamirs.businessdemo.model.ScheduleTest;
@@ -15,7 +12,6 @@ import com.taobao.pamirs.schedule.TaskItemDefine;
 
 public class ProtocolMailTask implements IScheduleTaskDealSingle<ScheduleTest> {
 
-    IBaseCommonDao baseCommonDao = (IBaseCommonDao) SpringContextUtil.getBean("baseCommonDao");
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	
 	
@@ -29,8 +25,12 @@ public class ProtocolMailTask implements IScheduleTaskDealSingle<ScheduleTest> {
 			int taskItemNum, List<TaskItemDefine> taskItemList,
 			int eachFetchDataNum)
 			throws Exception {
+	    IBaseCommonDao baseCommonDao = (IBaseCommonDao) SpringContextUtil.getBean("baseCommonDao");
+	    logger.debug("查询业务数据开始");
 		List<ScheduleTest> scheduleTestList = baseCommonDao.findScheduleTestList();
 		int length = scheduleTestList.size();
+		logger.debug("查询业务数据结束");
+		logger.debug("查询业务数据长度为"+length);
 		System.err.println(length);
 		return scheduleTestList;
 	}
@@ -38,6 +38,7 @@ public class ProtocolMailTask implements IScheduleTaskDealSingle<ScheduleTest> {
 	@Override
 	public boolean execute(ScheduleTest scheduleTest, String ownSign) throws Exception {
 		try{
+		    IBaseCommonDao baseCommonDao = (IBaseCommonDao) SpringContextUtil.getBean("baseCommonDao");
 		    scheduleTest.setSts("Y");
 		    logger.debug("修改业务方法开始");
 		    System.err.println("修改业务方法开始");

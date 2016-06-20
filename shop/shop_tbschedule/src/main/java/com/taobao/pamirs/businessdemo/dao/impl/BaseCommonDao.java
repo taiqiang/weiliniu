@@ -38,10 +38,12 @@ public class BaseCommonDao implements IBaseCommonDao {
     @Override
     public List<ScheduleTest> findScheduleTestList() {
         List<ScheduleTest>  scheduleTestList = new ArrayList<ScheduleTest>();
-        List rows = jdbcTemplate.queryForList(" SELECT ID,DEAL_COUNT,STS,OWN_SIGN FROM schedule_test "); 
+        logger.debug("jdbcTemplate"+jdbcTemplate.toString()+"\n hashCode"+jdbcTemplate.hashCode());
+        List rows = jdbcTemplate.queryForList(" SELECT ID,DEAL_COUNT,STS,OWN_SIGN FROM schedule_test limit 10000"); 
         for(int i=0;i<rows.size();i++){ 
             ScheduleTest scheduleTest = new ScheduleTest();
             Map userMap=(Map) rows.get(i);  
+            logger.debug("userMap"+userMap.toString()+"\n hashCode"+userMap.hashCode());
             scheduleTest.setId(Integer.parseInt(String.valueOf(userMap.get("id"))));
             scheduleTest.setDealCount(Integer.parseInt(String.valueOf(userMap.get("DEAL_COUNT"))));
             scheduleTest.setSts(String.valueOf(userMap.get("STS")));
@@ -56,6 +58,7 @@ public class BaseCommonDao implements IBaseCommonDao {
      */
     @Override
     public void updateScheduleTest(ScheduleTest scheduleTest) {
+        logger.debug("userMap"+scheduleTest.toString()+"\n hashCode"+scheduleTest.hashCode());
         int id = scheduleTest.getId();
         int dealCount = scheduleTest.getDealCount();
         String sts = scheduleTest.getSts();
