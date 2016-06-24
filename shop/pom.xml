@@ -12,6 +12,7 @@
  --><module>shop_redis</module>
 	<module>shop_solrj</module>
     <module>shop_tbschedule</module>
+    <module>shop_dubbo_admin</module>
   </modules>
   
 <!-- 集中定义依赖版本号 -->
