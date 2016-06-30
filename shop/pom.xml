@@ -471,5 +471,11 @@
 				    <artifactId>mina-core</artifactId>
 				    <version>1.1.7</version>
 				</dependency>
+				
+				<dependency>
+				    <groupId>org.jboss.netty</groupId>
+				    <artifactId>netty</artifactId>
+				    <version>3.2.10.Final</version>
+				</dependency>
 	</dependencies>  
 </project>
