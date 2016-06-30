@@ -48,8 +48,8 @@
 			      <groupId>org.springframework</groupId>  
 			      <artifactId>spring</artifactId>  
 			      <version>2.5.6.SEC03</version>  
-			      <scope>provided</scope> 
-			    </dependency>
+<!-- 			      <scope>provided</scope> 
+ -->			</dependency>
 				<dependency>
 					<groupId>org.springframework</groupId>
 					<artifactId>spring-context</artifactId>
@@ -419,6 +419,57 @@
 					<groupId>mysql</groupId>
 					<artifactId>mysql-connector-java</artifactId>
 					<version>5.1.13</version>
+				</dependency>
+				
+				<dependency>
+				    <groupId>org.javassist</groupId>
+				    <artifactId>javassist</artifactId>
+				    <version>3.20.0-GA</version>
+				</dependency>
+
+                <dependency>
+				    <groupId>org.jvnet.sorcerer</groupId>
+				    <artifactId>sorcerer-javac</artifactId>
+				    <version>0.8</version>
+				    <scope>provided</scope>
+				</dependency>	
+				
+				<dependency>
+				    <groupId>cglib</groupId>
+				    <artifactId>cglib-nodep</artifactId>
+				    <version>3.2.2</version>
+				    <scope>test</scope>
+				</dependency>
+				
+				
+				<dependency>
+				    <groupId>org.glassfish.grizzly</groupId>
+				    <artifactId>grizzly-core</artifactId>
+				    <version>2.3.25</version>
+				</dependency>
+				
+				<dependency>
+				    <groupId>org.mortbay.jetty</groupId>
+				    <artifactId>jetty</artifactId>
+				    <version>7.0.0.pre5</version>
+				</dependency>
+				
+<!-- 				<dependency>
+				    <groupId>org.apache.mina</groupId>
+				    <artifactId>mina-core</artifactId>
+				    <version>2.0.13</version>
+				</dependency> -->
+				
+<!-- 				<dependency>
+				    <groupId>org.apache.mina</groupId>
+				    <artifactId>mina-core</artifactId>
+				    <version>3.0.0-M2</version>
+				</dependency> -->
+				
+				<dependency>
+				    <groupId>org.apache.mina</groupId>
+				    <artifactId>mina-core</artifactId>
+				    <version>1.1.7</version>
 				</dependency>
 	</dependencies>  
 </project>

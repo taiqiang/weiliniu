@@ -25,3 +25,5 @@
 /shop_core/target/
 /shop_core/.classpath
 /shop_core/.project
+/shop/shop_tbschedule/src/main/webapp/WEB-INF/classes/
+/shop/shop_dubbo_admin/src/main/webapp/WEB-INF/classes/
