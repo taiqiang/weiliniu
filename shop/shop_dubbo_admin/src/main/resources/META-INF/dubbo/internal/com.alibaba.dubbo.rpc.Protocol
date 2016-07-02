@@ -1,3 +1,5 @@
 filter=com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper
 listener=com.alibaba.dubbo.rpc.protocol.ProtocolListenerWrapper
 mock=com.alibaba.dubbo.rpc.support.MockProtocol
+dubbo=com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol
+hessian=com.alibaba.dubbo.rpc.protocol.hessian.HessianProtocol
